@@ -15,6 +15,8 @@ Working with DOM
 DOM içerisinden Etiket ve ID ile Öğe Seçimi
 DOM ADDEventListener
 
+Hoisting
+
 DOM'a CSS Class Bilgisi Eklemek veya Çıkarmak
 Karşılaştırma Operatörleri ve Mantıksal Operatörler
 Koşul Yapısı Kullanımı (if / else)
@@ -23,7 +25,7 @@ Ternary Operator( koşul ? doğruysa : yanlışsa) ile If Kullanımı
 for Döngüsü Kullanımı
 break ve continue Kullanımı
 while Döngüsü
-Liste içerisindeki Öğeye Erişmek ve Yeni Öğe Eklemek
+
 Fonksiyonlar
 Fonksiyon Nedir ? Neden Kullanırız?
 Fonsiyona Parametre(params) ve Geridönüş(return) Eklemek
@@ -47,21 +49,14 @@ Object(Nesne) Nedir? Nasıl Oluşturulur?
 Object Anahtar(Key) ve Değer(Value) Yapısının Kullanımı / Erişimi
 Nesnelere Nasıl Metot Ekleriz?
 Object ve Array Destructuring Kullanımı
+
 try ve catch kullanımı
 
 Fetch API
 JS isteklerinde Network takibi
-Comments // /* */
-
-Decision Structures / Conditions
-Functions
-Local Storage
-working with the array Data Type
-Hoisting
-Loops
-
-Form
-Error Management
-Fetch API
 async await / promise / callbacks
+// axios
+
 Event Loop (How Js works)
+
+Debugging
