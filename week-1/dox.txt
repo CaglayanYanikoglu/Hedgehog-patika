@@ -45,18 +45,12 @@ Eklenmesi
 Map ile Array İçerisideki Yapının Değiştirilerek Yeni Liste
 Oluşturulması
 Nesne(Object)
+
 Object(Nesne) Nedir? Nasıl Oluşturulur?
 Object Anahtar(Key) ve Değer(Value) Yapısının Kullanımı / Erişimi
 Nesnelere Nasıl Metot Ekleriz?
 Object ve Array Destructuring Kullanımı
 
-try ve catch kullanımı
+try ve catch, finally kullanımı
 
-Fetch API
-JS isteklerinde Network takibi
-async await / promise / callbacks
-// axios
 
-Event Loop (How Js works)
-
-Debugging

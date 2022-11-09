@@ -1,0 +1,9 @@
+Fetch API
+JS isteklerinde Network takibi
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+async await / promise / callbacks
+// axios
+
+Event Loop (How Js works)
+
+Debugging

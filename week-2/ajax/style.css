@@ -1,0 +1,27 @@
+/* table td {
+  color: green;
+  font-size: 32px;
+  font-weight: 700;
+} */
+
+.table-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.user-table {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+
+.user-table td, .user-table th {
+  padding: 6px;
+  border: 1px solid #ddd;
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #e6f9ff;
+}
