@@ -4,11 +4,14 @@
   font-weight: 700;
 } */
 
+body {
+  padding: 16px;
+}
+
 .table-container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 16px;
 }
 
 .user-table {
@@ -24,4 +27,11 @@
 
 .user-table tr:nth-child(even) {
   background-color: #e6f9ff;
+}
+
+.input {
+  margin-bottom: 32px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #aaa
 }
