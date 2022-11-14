@@ -30,16 +30,16 @@ const printUsers = () => {
 }
 
 const init = () => {
-  //getUsers();
+  // getUsers();
   // printUsers();
   getUsers(printUsers)
 };
 
-init(); */
-
+init();
+ */
 
 // Promise method
-let users = [];
+/* let users = [];
 
 const getUsers = () => {
   console.log('get user function');
@@ -56,9 +56,12 @@ const printUsers = () => {
   console.log(users);
 }
 
-const init = () => {
-  getUsers();
-  printUsers();
+const init = async () => {
+  await getUsers();
+  await printUsers();
 };
 
 init();
+ */
+
+
