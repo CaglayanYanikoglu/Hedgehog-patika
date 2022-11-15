@@ -1,0 +1,63 @@
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.todos-list {
+  max-height: 380px;
+  overflow: auto;
+}
+
+.todos-list>p {
+  color: #333;
+  cursor: pointer;
+}
+
+.todos-list>p:hover {
+  color:rgb(131, 131, 213)
+}
+
+.todos-list>p.completed {
+  color: #4eb950;
+}
+
+#search {
+  outline: none;
+  padding: 10px 20px;
+  padding-left: 30px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+#search:focus,
+#search:active {
+  border: 1px solid rgb(131, 131, 213);
+}
+
+.search-icon {
+  position: absolute;
+  top: 6px;
+  left: 4px;
+}
+
+.search-container {
+  position: relative;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  border: none;;
+  background-color: rgb(74, 74, 153);
+  color: #FFF;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}

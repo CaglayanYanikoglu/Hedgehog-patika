@@ -10,8 +10,8 @@ setTimeout(() => {
 console.log('3');
  */
 
-// CALLBACK WAY:
-/* let users = [];
+/* // CALLBACK WAY:
+let users = [];
 
 const getUsers = (callback) => {
   console.log('get user function');
@@ -20,7 +20,7 @@ const getUsers = (callback) => {
   .then(data => {
     console.log('data arrived');
     users = data;
-    callback();
+    callback(); // printusers();
   })
 }
 
@@ -36,13 +36,14 @@ const init = () => {
 };
 
 init();
- */
 
+ */
 // Promise method
 /* let users = [];
 
 const getUsers = () => {
   console.log('get user function');
+  // promise chaining
   fetch('https://jsonplaceholder.typicode.com/users')
   .then(res => res.json())
   .then(data => {
@@ -62,6 +63,6 @@ const init = async () => {
 };
 
 init();
+
+
  */
-
-
