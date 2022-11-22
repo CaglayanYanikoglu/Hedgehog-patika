@@ -21,7 +21,7 @@ class Home extends React.Component {
     return (
       <>
         <h1 className="test">
-          Home Page
+          TODO List
         </h1>
         {/* <button onClick={this.handleCount}>Click</button> */}
         <TodoApp />
