@@ -1,5 +1,8 @@
+@import '_variables.scss';
+
 .App {
   text-align: center;
+  background-color: $background-color;
 }
 
 .App-logo {
@@ -35,4 +38,52 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.user-list {
+  /* $base-color: blue; */ 
+  &-wrapper { // .user-list-wrapper
+    margin-top: 64px;
+    padding: 0 16px;
+    input {
+      padding: 12px 24px;
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+  }
+  &-table { // .user-list-table
+    td, th {
+      padding: 6px;
+      border: 1px solid #ddd;
+      color: $base-color;
+    }
+    border-collapse: collapse;
+    thead {
+      tr {
+        background-color:#31695c;
+        th {
+          color: #FFF;
+        }
+      }
+    }
+    tbody {
+      tr:nth-child(even) {
+        background-color: #bde7f3;
+      }
+    }
+
+  }
+  &-header {
+    color: #333;
+    font-size: 40px;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+}
+
+.user-list-header {
+    &.red-header {
+      color: tomato;
+    }
 }
