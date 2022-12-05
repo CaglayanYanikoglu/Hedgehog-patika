@@ -1,8 +1,17 @@
 @import '_variables.scss';
 
+body {
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
 .App {
-  text-align: center;
   background-color: $background-color;
+  height: 100%;
+  text-align: center;
 }
 
 .App-logo {

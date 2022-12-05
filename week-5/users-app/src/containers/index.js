@@ -1,5 +1,7 @@
 import Home from "./Home";
+import UseCallbackExample from "./UseCallbackExample";
 
 export {
-  Home
+  Home,
+  UseCallbackExample
 };

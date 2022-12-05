@@ -33,7 +33,6 @@ React Router
 ContextAPI
 
 
-
 General Syllabus
 SPA
 Component
@@ -52,3 +51,4 @@ Performance
 https://getbem.com/introduction/
 
 
+useCallback(debounce(() => handleSearch(search), 500), [search]);
