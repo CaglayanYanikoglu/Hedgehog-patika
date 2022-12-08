@@ -5,7 +5,9 @@ import { Container, ProductsWrapper, Title } from './ScHome';
 import { getAllProducts } from '../../services/ProductServices';
 import Card from './Card';
 
-const Products = () => {
+const Products = ({
+  search, favorites, setFavorites
+}) => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState('');
@@ -29,12 +31,17 @@ const Products = () => {
   const handleCategory = (category) => {
     setActiveCategory(category);
   };
+  
+  const handleFavorite = (product) => {
+    setFavorites([...favorites, product]);
+  }
 
   const filteredData = products.filter(product => {
+    // search
     if (!activeCategory) {
-      return product;
+      return product.title.toLowerCase().includes(search.toLowerCase());
     } else {
-      return product.category === activeCategory;
+      return product.category === activeCategory && product.title.toLowerCase().includes(search.toLowerCase());
     }
   });
 
@@ -58,7 +65,7 @@ const Products = () => {
         </ul>
         <div className="products">
           {filteredData.map(product => (
-            <Card product={product} handleRemove={handleRemove} key={product.id} />
+            <Card product={product} handleRemove={handleRemove} key={product.id} handleFavorite={handleFavorite} />
           ))}
         </div>
       </ProductsWrapper>

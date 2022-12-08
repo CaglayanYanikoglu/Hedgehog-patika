@@ -1,15 +1,32 @@
 import React, { useState } from 'react';
+import Modal from 'react-modal';
 import Styled from 'styled-components';
-import { Container, SubHeader, MainHeader, Input } from '../components/Home/ScHome';
+import Card from '../components/Home/Card';
+
+import { SubHeader, MainHeader, Input, Cart } from '../components/Home/ScHome';
 import Products from '../components/Home/Products';
-/* 
-const Container = Styled.div`
-  background: #ddd;
-  border: 1px solid #333;
-`; */
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+  },
+  overlay: {
+    background: 'rgba(0,0,0,0.7)'
+  }
+};
+
+// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
+Modal.setAppElement('#modal-container');
 
 const Home = () => {
   const [search, setSearch] = useState('');
+  const [favorites, setFavorites] = useState([]);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -28,12 +45,35 @@ const Home = () => {
           <span>Erkek</span>
           <span>Kadın</span>
         </div>
-        <div className="search-wrapper">
-          <svg aria-hidden="true" className="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none"><path stroke="currentColor" strokeWidth="1.5" d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853"></path></svg>
-          <Input value={search} placeholder="Ara" onChange={(e) => { setSearch(e.target.value) }} />
+        <div className='right-menu'>
+          <div className="search-wrapper">
+            <svg aria-hidden="true" className="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none"><path stroke="currentColor" strokeWidth="1.5" d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853"></path></svg>
+            <Input value={search} placeholder="Ara" onChange={(e) => { setSearch(e.target.value) }} />
+          </div>
+          <Cart className='cart' onClick={() => setIsOpen(true)}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z" /><path d="M4 6.414L.757 3.172l1.415-1.415L5.414 5h15.242a1 1 0 0 1 .958 1.287l-2.4 8a1 1 0 0 1-.958.713H6v2h11v2H5a1 1 0 0 1-1-1V6.414zM6 7v6h11.512l1.8-6H6zm-.5 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm12 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" /></svg>
+            {!!favorites.length && (
+              <span>{favorites.length}</span>
+            )}
+          </Cart>
         </div>
       </MainHeader>
-      <Products search={search} />
+      <Products search={search} favorites={favorites} setFavorites={setFavorites} />
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={() => setIsOpen(false)}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <div>
+          <h2>Favorites</h2>
+          <div className="products">
+            {favorites.map(product => (
+              <Card product={product}  key={product.id}/>
+            ))}
+          </div>
+        </div>
+      </Modal>
     </>
 
   )

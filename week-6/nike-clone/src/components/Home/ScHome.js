@@ -48,6 +48,11 @@ export const MainHeader = Styled.div`
       border-bottom: 1px solid #000;
     }
   }
+  .right-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
   .search-wrapper {
     position: relative;
     svg {
@@ -119,7 +124,7 @@ export const CardWrapper = Styled.div`
   cursor: pointer;
 
   &:hover {
-    transform: scale(1.25);
+    /* transform: scale(1.25); */
   }
 
   img {
@@ -144,5 +149,23 @@ export const CardWrapper = Styled.div`
       font-weight: 600;
     }
   }
+
+  svg {
+    z-index: 12321;
+  }
 `;
 
+export const Cart = Styled.div`
+  position: relative;
+  cursor: pointer;
+  span {
+    position: absolute;
+    background: tomato;
+    padding: 2px 4px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 12px;
+    right: -4px;
+    bottom: -6px;
+  }
+`;
