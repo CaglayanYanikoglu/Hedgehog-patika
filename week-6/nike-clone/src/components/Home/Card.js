@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
+// import FavoritesContext from '../../context/FavoritesContext';
 import { CardWrapper } from './ScHome';
 
 const Card = ({ product, handleRemove, handleFavorite }) => {
+  // const favoritesContext = useContext(FavoritesContext);
+  // console.log('card compoennt context:', favoritesContext);
   return (
     <CardWrapper>
       <img src={product.image} alt="product" />
