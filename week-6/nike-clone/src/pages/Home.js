@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Modal from 'react-modal';
 import Styled from 'styled-components';
 import Card from '../components/Home/Card';
 
 import { SubHeader, MainHeader, Input, Cart } from '../components/Home/ScHome';
 import Products from '../components/Home/Products';
+import FavoritesContext from '../context/FavoritesContext';
 
 const customStyles = {
   content: {
@@ -25,8 +26,9 @@ Modal.setAppElement('#modal-container');
 
 const Home = () => {
   const [search, setSearch] = useState('');
-  const [favorites, setFavorites] = useState([]);
   const [modalIsOpen, setIsOpen] = useState(false);
+
+  const { favorites, setFavorites } = useContext(FavoritesContext);
 
   return (
     <>
@@ -69,7 +71,7 @@ const Home = () => {
           <h2>Favorites</h2>
           <div className="products">
             {favorites.map(product => (
-              <Card product={product}  key={product.id}/>
+              <Card product={product} key={product.id} />
             ))}
           </div>
         </div>
