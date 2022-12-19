@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-import { useParams, Link } from "react-router-dom";
 import { getProductDetail } from "../services/ProductServices";
 import { DetailWrapper } from "../components/shared/scShared";
 
@@ -9,10 +11,21 @@ const ProductDetail = () => {
 
   const { productId } = useParams();
 
+  const navigate = useNavigate();
+
   const fetchProduct = async () => {
     try {
       const res = await getProductDetail(productId);
-      setProduct(res.data);
+      console.log(res);
+      if (!res.data) {
+        // redirect page
+        toast.error("This product does not exist!");
+        setTimeout(() => {
+          navigate('/');
+        }, 4000);
+      } else {
+        setProduct(res.data);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -39,6 +52,7 @@ const ProductDetail = () => {
           <p className="price">${product.price}</p>
         </div>
       </DetailWrapper>
+      <ToastContainer hideProgressBar />
     </>
   );
 };

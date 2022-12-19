@@ -15,10 +15,6 @@ const Products = ({
   let [searchParams, setSearchParams] = useSearchParams();
   const [activeCategory, setActiveCategory] = useState(searchParams.get('category') || '');
 
-  console.log(searchParams.get('category'));
-  console.log(searchParams.get('name'));
-  console.log(searchParams.get('surname'));
-
   const fetchProducts = async () => {
     try {
       const res = await getAllProducts();
@@ -37,10 +33,11 @@ const Products = ({
 
   const handleCategory = (category) => {
     setActiveCategory(category);
+    const gender = searchParams.get('gender');
     const params = {
-      category
+      category,
+      gender
     };
-    console.log('params', params);
     setSearchParams(params);
   };
 

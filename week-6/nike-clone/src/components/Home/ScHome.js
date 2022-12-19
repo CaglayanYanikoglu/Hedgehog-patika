@@ -47,6 +47,10 @@ export const MainHeader = Styled.div`
     & > span:hover {
       border-bottom: 1px solid #000;
     }
+    .active {
+      color: #2234fe;
+      font-weight: 600;
+    }
   }
   .right-menu {
     display: flex;
