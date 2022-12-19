@@ -12,6 +12,9 @@ const Navigation = () => {
           className={({ isActive }) =>
             isActive ? 'active-link' : undefined
           }
+          style={({ isActive }) =>
+            isActive ? { fontWeight: '600' } : undefined
+          }
         >
           Home
         </NavLink>
@@ -22,10 +25,15 @@ const Navigation = () => {
           className={({ isActive }) =>
             isActive ? 'active-link' : undefined
           }
+          style={({ isActive }) =>
+            isActive ? { fontWeight: '600' } : undefined
+          }
         >
           About
         </NavLink>
       </li>
+      {/* <a href="/">Home</a>
+      <a href="/about">About</a> */}
     </ul>
   );
 };

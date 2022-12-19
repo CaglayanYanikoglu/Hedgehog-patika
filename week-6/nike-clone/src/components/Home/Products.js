@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
+import { useSearchParams } from 'react-router-dom';
 
 import { Container, ProductsWrapper, Title } from './ScHome';
 import { getAllProducts } from '../../services/ProductServices';
@@ -10,7 +11,13 @@ const Products = ({
 }) => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [activeCategory, setActiveCategory] = useState('');
+  
+  let [searchParams, setSearchParams] = useSearchParams();
+  const [activeCategory, setActiveCategory] = useState(searchParams.get('category') || '');
+
+  console.log(searchParams.get('category'));
+  console.log(searchParams.get('name'));
+  console.log(searchParams.get('surname'));
 
   const fetchProducts = async () => {
     try {
@@ -30,8 +37,13 @@ const Products = ({
 
   const handleCategory = (category) => {
     setActiveCategory(category);
+    const params = {
+      category
+    };
+    console.log('params', params);
+    setSearchParams(params);
   };
-  
+
   const handleFavorite = (product) => {
     setFavorites([...favorites, product]);
   }
@@ -50,11 +62,17 @@ const Products = ({
     setProducts(remainingProducts);
   };
 
+  const removeCategoryFilter = () => {
+    setActiveCategory('');
+    searchParams.delete('category');
+    setSearchParams(searchParams);
+  }
+
   return (
     <Container>
       <Title>Tüm ürünler ({filteredData.length}) - {activeCategory}
         {activeCategory && (
-          <svg onClick={() => setActiveCategory('')} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z" /><path d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z" /></svg>
+          <svg onClick={removeCategoryFilter} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z" /><path d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z" /></svg>
         )}
       </Title>
       <ProductsWrapper>

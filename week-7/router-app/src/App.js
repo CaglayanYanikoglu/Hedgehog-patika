@@ -5,6 +5,7 @@ import {
 
 import Home from "./pages/Home";
 import About from "./pages/About";
+import User from "./pages/User";
 
 import './App.css';
 
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
     path: "/about",
     element: <About />
   },
+  {
+    path: '/users/:userId',
+    element: <User />
+  }
 ]);
 
 function App() {

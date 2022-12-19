@@ -1,12 +1,20 @@
 import React, {useContext} from 'react';
+import { useNavigate } from 'react-router-dom';
 // import FavoritesContext from '../../context/FavoritesContext';
 import { CardWrapper } from './ScHome';
 
 const Card = ({ product, handleRemove, handleFavorite }) => {
   // const favoritesContext = useContext(FavoritesContext);
   // console.log('card compoennt context:', favoritesContext);
+
+  const navigate = useNavigate();
+
+  const goDetail = () => {
+    navigate(`/products/${product.id}`);
+  }
+
   return (
-    <CardWrapper>
+    <CardWrapper onClick={goDetail}>
       <img src={product.image} alt="product" />
       <div className='product-content'>
         <span className='title'>{product.title}</span>
